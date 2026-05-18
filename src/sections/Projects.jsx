@@ -35,7 +35,7 @@ const Projects = () => {
       category: "Basic",
       image: "/project_img/countup.png",
       github: "https://github.com/...",
-      live: "https://project3.com",
+      live: "https://count-up-the-calculator.vercel.app/",
     },
     {
       id: 4,

@@ -1,19 +1,21 @@
 import React from "react";
 import ParticlesBackground from "../components/ParticlesBackground";
+import { GiNinjaHead } from "react-icons/gi"; // Coding Ninjas के लिए
+import { FaCode } from "react-icons/fa";
+
 import {
   SiCodechef,
   SiLeetcode,
   SiGeeksforgeeks,
   SiHackerrank,
   SiCodeforces,
-  SiCodingninjas,
 } from "react-icons/si";
 
 const Achievements = () => {
   const codingStats = [
     {
       platform: "CodeChef",
-      rating: "⭐⭐⭐",
+      rating: "⭐⭐",
       color: "from-brown-500 to-orange-500",
       icon: SiCodechef,
       link: "https://codechef.com/users/manish1302",
@@ -27,7 +29,7 @@ const Achievements = () => {
     },
     {
       platform: "LeetCode",
-      rating: "🏅 150+ Problems Solved",
+      rating: "🏅 170+ Problems Solved",
       color: "from-yellow-500 to-orange-500",
       icon: SiLeetcode,
       link: "https://leetcode.com/u/Manish130206",
@@ -41,50 +43,58 @@ const Achievements = () => {
     },
     {
       platform: "GeeksForGeeks",
-      rating: "🏅 500+ Problems Solved",
+      rating: "🏅 600+ Problems Solved",
       color: "from-yellow-500 to-orange-500",
       icon: SiGeeksforgeeks,
       link: "https://codeforces.com/profile/Manish_D13",
+    },
+    {
+      platform: "Code 360",
+      rating: "1523 (Achiever)",
+      color: "from-yellow-500 to-orange-500",
+      icon: GiNinjaHead,
+      link: "https://codeforces.com/profile/Manish_D13",
+    },
+    {
+      platform: "AtCoder",
+      rating: "165 (10 Kyu)",
+      color: "from-yellow-500 to-orange-500",
+      icon: FaCode,
+      link: "https://leetcode.com/u/Manish130206",
     },
   ];
 
   const achievements = [
     {
-      title: "Winner - National Hackathon 2024",
-      organizer: "TechFest India",
-      date: "2024",
+      title: "7 Time Collage Topper",
+      organizer: "Coding 360",
+      date: "2024 - Present",
       icon: "🏆",
     },
     {
-      title: "Top 10 - Google Code Jam",
-      organizer: "Google",
-      date: "2023",
-      icon: "🎯",
-    },
-    {
-      title: "Open Source Contributor - React.js",
-      organizer: "Meta",
-      date: "2023",
-      icon: "⭐",
-    },
-    {
-      title: "Best Project Award",
-      organizer: "College Tech Fest",
-      date: "2023",
+      title: "1st Position in Digital Poster Making Competition",
+      organizer: "NSS SSIPMT, Raipur",
+      date: "2025",
       icon: "🥇",
     },
     {
-      title: "100 Days of Code - Complete",
-      organizer: "GitHub",
+      title: "2nd Position in Photography Competition",
+      organizer: "NSS SSIPMT, Raipur",
       date: "2024",
-      icon: "✅",
+      icon: "⭐",
     },
     {
-      title: "Mentor at Coding Bootcamp",
-      organizer: "CodeChef",
-      date: "2023",
-      icon: "👨‍🏫",
+      title: "500+ Days of Coding Streak",
+      organizer: "Overall Platforms",
+      date: "2024 - Present",
+      icon: "✅",
     },
+    // {
+    //   title: "Mentor at Coding Bootcamp",
+    //   organizer: "CodeChef",
+    //   date: "2023",
+    //   icon: "👨‍🏫",
+    // },
   ];
 
   return (
