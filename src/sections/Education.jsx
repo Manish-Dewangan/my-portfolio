@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
+import ParticlesBackground from "../components/ParticlesBackground";
 
 const Education = () => {
   const educations = [

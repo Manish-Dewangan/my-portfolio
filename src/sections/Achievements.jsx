@@ -46,21 +46,21 @@ const Achievements = () => {
       rating: "🏅 600+ Problems Solved",
       color: "from-yellow-500 to-orange-500",
       icon: SiGeeksforgeeks,
-      link: "https://codeforces.com/profile/Manish_D13",
+      link: "https://www.geeksforgeeks.org/profile/manish_d1302",
     },
     {
       platform: "Code 360",
       rating: "1523 (Achiever)",
       color: "from-yellow-500 to-orange-500",
       icon: GiNinjaHead,
-      link: "https://codeforces.com/profile/Manish_D13",
+      link: "https://www.naukri.com/code360/profile/ManishD",
     },
     {
       platform: "AtCoder",
       rating: "165 (10 Kyu)",
       color: "from-yellow-500 to-orange-500",
       icon: FaCode,
-      link: "https://leetcode.com/u/Manish130206",
+      link: "https://atcoder.jp/users/Manish_D13",
     },
   ];
 
@@ -70,6 +70,12 @@ const Achievements = () => {
       organizer: "Coding 360",
       date: "2024 - Present",
       icon: "🏆",
+    },
+    {
+      title: "500+ Days of Coding Streak",
+      organizer: "Overall Platforms",
+      date: "2024 - Present",
+      icon: "✅",
     },
     {
       title: "1st Position in Digital Poster Making Competition",
@@ -83,12 +89,7 @@ const Achievements = () => {
       date: "2024",
       icon: "⭐",
     },
-    {
-      title: "500+ Days of Coding Streak",
-      organizer: "Overall Platforms",
-      date: "2024 - Present",
-      icon: "✅",
-    },
+
     // {
     //   title: "Mentor at Coding Bootcamp",
     //   organizer: "CodeChef",

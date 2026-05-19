@@ -8,7 +8,7 @@ const ParticlesBackground = () => {
     const ctx = canvas.getContext("2d");
 
     let particles = [];
-    const particleCount = 50;
+    const particleCount = 70;
     const colors = ["rgba(255,255,255,0.7)"];
 
     class Particle {

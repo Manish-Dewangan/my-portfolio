@@ -1,11 +1,12 @@
 import React, { useEffect, useMemo, useState } from "react";
 import ParticlesBackground from "../components/ParticlesBackground";
-import { motion, scale } from "framer-motion";
+import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
-
 import { CgProfile } from "react-icons/cg";
-import avator from "../assets/avator.png";
+
+// 1. Naya Lottie Player Import karo
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 const socials = [
   {
@@ -55,7 +56,6 @@ const Home = () => {
 
   useEffect(() => {
     const current = roles[index];
-
     let timeout;
 
     if (!deleting && subIndex < current.length) {
@@ -79,16 +79,18 @@ const Home = () => {
     >
       <ParticlesBackground />
       <div className="absolute inset-0">
-        <div className="absolute -top32 -left-32 w-[70vw] sm:w-[50vw] md:w-[40vw] h-[70vw] sm:h-[50vw] md:h-[40vw] max-w-[500px] max-h-[500px] rounded-full bg-gradient-to-r from-[#302b63] via-[#00bf8f] to-[#1cd8d2] opacity-30 sm:opacity-20 md:opacity-10 blur-[100px] sm:blur-[130px] md:blur-[150px] animate-pulse "></div>
+        {/* Glow Backgrounds */}
+        <div className="absolute -top-32 -left-32 w-[70vw] sm:w-[50vw] md:w-[40vw] h-[70vw] sm:h-[50vw] md:h-[40vw] max-w-[500px] max-h-[500px] rounded-full bg-gradient-to-r from-[#302b63] via-[#00bf8f] to-[#1cd8d2] opacity-30 sm:opacity-20 md:opacity-10 blur-[100px] sm:blur-[130px] md:blur-[150px] animate-pulse "></div>
         <div className="absolute bottom-0 right-0 w-[70vw] sm:w-[50vw] md:w-[40vw] h-[70vw] sm:h-[50vw] md:h-[40vw] max-w-[500px] max-h-[500px] rounded-full bg-gradient-to-r from-[#302b63] via-[#00bf8f] to-[#1cd8d2] opacity-30 sm:opacity-20 md:opacity-10 blur-[100px] sm:blur-[130px] md:blur-[150px] animate-pulse delay-500 "></div>
 
-        <div className="relative z-10 h-full w-full max-w-7xl lg:mx-8 mx-0 px-2 grid grid-cols-1 lg:grid-cols-2 ">
-          <div className="flex flex-col justify-center h-full text-center lg:text-left relative">
-            <div className="w-full lg:pr-24 mx-auto max-w-[48rem]">
+        <div className="relative z-10 h-full w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr]">
+          {/* Left Content Side */}
+          <div className="flex flex-col justify-center h-full text-center lg:text-left relative lg:-translate-x-12 xl:-translate-x-20">
+            <div className="w-full lg:pr-12 max-w-[48rem]">
               <motion.div className="mb-3 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-white tracking-wide min-h-[1.6em] ">
                 <span>{roles[index].substring(0, subIndex)}</span>
                 <span
-                  className="inline-block w-[2px] ml-1 bg-white animate-pulse align-middle animate-blink"
+                  className="inline-block w-[2px] ml-1 bg-white animate-pulse align-middle"
                   style={{ height: "1em" }}
                 ></span>
               </motion.div>
@@ -110,9 +112,9 @@ const Home = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.8 }}
               >
-                I turn complex ideas into seamless, high-impact web experiences
-                - building modern, scalable, and lightning-fast applications
-                that make a difference.
+                Turning ideas into powerful digital products through modern
+                development, intuitive design, and performance-focused user
+                experiences.
               </motion.p>
               <motion.div
                 className="mt-10 flex flex-wrap items-center justify-center lg:justify-start gap-6 "
@@ -129,7 +131,7 @@ const Home = () => {
                 <a
                   href="/Resume.pdf"
                   download
-                  className="px-6 py-3 rounded-full text-lg font-medium text-black bg-white hover:bg-gray-200 shadow:lg hover:scale-105 transition-all"
+                  className="px-6 py-3 rounded-full text-lg font-medium text-black bg-white hover:bg-gray-200 shadow-lg hover:scale-105 transition-all"
                 >
                   My Resume
                 </a>
@@ -154,33 +156,37 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="relative hidden lg:block">
-            <div
-              className="absolute top-1/2 -translate-y-1/2 pointer-events-none"
-              style={{
-                right: "10px",
-                width: "min(22vw, 410px) ",
-                height: "min(40vw, 760px)",
-                borderRadius: "50%",
-                filter: "blur(38px)",
-                opacity: 0.32,
-                background:
-                  "conic-gradient(from 0deg , #1cd8d2 , #00bf8f, #302b63, #1cd8d2)",
-              }}
-            />
-            <motion.img
-              src={avator}
-              alt="Manish Dewangan"
-              className="absolute top-1/2 -translate-y-1/2 object-contain select-none pointer-events-none"
-              style={{
-                right: "-200px",
-                width: "min(45vw , 780px)",
-                maxHeight: "90vh",
-              }}
-              initial={{ opacity: 0, y: 40, scale: 0.98 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ delay: 0.2, duration: 0.8 }}
-            />
+
+          {/* Right Lottie Animation Side */}
+          <div className="relative hidden lg:flex justify-end items-center pr-10 xl:pr-20">
+            {/* Glow Background */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div
+                className="w-[420px] h-[420px] rounded-full opacity-20 blur-3xl"
+                style={{
+                  background:
+                    "conic-gradient(from 0deg, #1cd8d2, #00bf8f, #302b63, #1cd8d2)",
+                }}
+              />
+            </div>
+
+            {/* Lottie Container */}
+            <motion.div
+              className="relative z-10 w-[480px] xl:w-[560px] h-[480px] xl:h-[560px] flex items-center justify-center shrink-0"
+              initial={{ opacity: 0, x: 60 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+              <DotLottieReact
+                src="/developer.lottie"
+                loop
+                autoplay
+                renderConfig={{
+                  devicePixelRatio: window.devicePixelRatio || 2,
+                }}
+                className="w-full h-full"
+              />
+            </motion.div>
           </div>
         </div>
       </div>
