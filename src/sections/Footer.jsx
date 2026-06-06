@@ -85,7 +85,7 @@ const Footer = () => {
           ))}
         </div>
         <p className="text-gray-300 italic max-w-xl">
-          "Success is when preparation meets opportunity."
+          "Success is built on consistency, not luck"
         </p>
         <p className="text-xs text-gray-400">
           &copy; {new Date().getFullYear()} Manish Dewangan. All rights
