@@ -1,6 +1,14 @@
 @import "tailwindcss";
 
 
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  background: black;
+}
+
 body{
   font-family: "poppins", sans-serif;
 }
@@ -34,4 +42,20 @@ html {
 ::-webkit-scrollbar-thumb {
   background: #8b5cf6;
   border-radius: 4px;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-left {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  animation: scroll-left 20s linear infinite;
 }

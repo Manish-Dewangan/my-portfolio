@@ -44,21 +44,23 @@ const IntroAnimation = ({ onFinish }) => {
           exit={{
             y: "-100%",
             transition: {
-              duration: 1.05,
+              duration: 1.5,
               ease: [0.22, 1, 0.36, 1],
             },
           }}
         >
-          <motion.h1
-            key={index}
-            className="text-5xl md:text-7xl lg:text-8xl font-bold"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.1 }}
-          >
-            {greetings[index]}
-          </motion.h1>
+          <AnimatePresence mode="wait">
+            <motion.h1
+              key={index}
+              className="text-5xl md:text-7xl lg:text-8xl font-bold"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.1 }}
+            >
+              {greetings[index]}
+            </motion.h1>
+          </AnimatePresence>
         </motion.div>
       )}
     </AnimatePresence>

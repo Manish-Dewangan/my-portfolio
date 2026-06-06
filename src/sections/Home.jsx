@@ -5,7 +5,6 @@ import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 
-// 1. Naya Lottie Player Import karo
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 const socials = [
@@ -182,7 +181,8 @@ const Home = () => {
                 loop
                 autoplay
                 renderConfig={{
-                  devicePixelRatio: window.devicePixelRatio || 2,
+                  devicePixelRatio:
+                    typeof window !== "undefined" ? window.devicePixelRatio : 2,
                 }}
                 className="w-full h-full"
               />

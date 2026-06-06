@@ -6,7 +6,6 @@ import Skills from "./sections/Skills";
 import Projects from "./sections/Projects";
 import Contact from "./sections/Contact";
 import Footer from "./sections/Footer";
-import ParticlesBackground from "./components/ParticlesBackground";
 import CustomCursor from "./components/CustomCursor";
 import IntroAnimation from "./components/IntroAnimation";
 import Education from "./sections/Education";
@@ -15,30 +14,25 @@ import Certificates from "./sections/Certificates";
 import Achievements from "./sections/Achievements";
 
 const App = () => {
-  const [introDone, setIntroDone] = useState(false);
+  const [showIntro, setShowIntro] = useState(true);
 
   return (
-    <>
-      {!introDone && <IntroAnimation onFinish={() => setIntroDone(true)} />}
+    <div className="relative min-h-screen bg-black text-white">
+      <CustomCursor />
+      <Navbar />
+      <Home />
+      <About />
+      <Skills />
+      <Projects />
+      <Education />
+      <Certificates />
+      <Achievements />
+      <Contact />
+      <Footer />
+      <MusicPlayer />
 
-      {introDone && (
-        <div className="relative gredient text-white">
-          <CustomCursor />
-          {/* <ParticlesBackground /> */}
-          <Navbar />
-          <Home />
-          <About />
-          <Skills />
-          <Projects />
-          <Education />
-          <Certificates />
-          <Achievements />
-          <Contact />
-          <Footer />
-          <MusicPlayer />
-        </div>
-      )}
-    </>
+      {showIntro && <IntroAnimation onFinish={() => setShowIntro(false)} />}
+    </div>
   );
 };
 

@@ -2,7 +2,7 @@ import React from "react";
 import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import { CgProfile } from "react-icons/cg";
 import { FaInstagram } from "react-icons/fa";
-import avator from "../assets/avator.png";
+// import avator from "../assets/avator.png";
 import { motion } from "framer-motion";
 
 const Footer = () => {
