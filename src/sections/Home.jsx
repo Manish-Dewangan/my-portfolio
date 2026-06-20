@@ -128,8 +128,9 @@ const Home = () => {
                   View My Work
                 </a>
                 <a
-                  href="/Manish_Dewangan_Resume.pdf"
-                  download
+                  href="https://res.cloudinary.com/dm7lxtbgi/image/upload/v1781988329/Manish_Dewangan_Resume_iel698.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="px-6 py-3 rounded-full text-lg font-medium text-black bg-white hover:bg-gray-200 shadow-lg hover:scale-105 transition-all"
                 >
                   My Resume
