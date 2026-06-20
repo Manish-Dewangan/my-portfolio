@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import Profile from "../assets/manish_profile.png";
+import Profile from "../assets/ManishProfile.png";
 import {
   FaFlutter,
   FaGithub,
@@ -283,7 +283,7 @@ const About = () => {
                 className="flex flex-col sm:flex-row gap-4"
               >
                 <motion.a
-                  href="/Resume.pdf"
+                  href="/Manish_Dewangan_Resume.pdf"
                   download
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}

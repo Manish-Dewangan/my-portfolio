@@ -113,6 +113,7 @@ const ProjectCard = ({ project, index }) => {
 
 const Projects = () => {
   const [filter, setFilter] = useState("all");
+  const [showAll, setShowAll] = useState(false);
   const headingRef = useRef(null);
   const headingInView = useInView(headingRef, { margin: "-100px" });
 
@@ -124,7 +125,7 @@ const Projects = () => {
       tech: ["React", "MongoDB", "NodeJs", "ExpressJs", "Tailwind"],
       category: "fullstack",
       image: "/project_img/meet-movies-img.png",
-      github: "https://github.com/...",
+      github: "https://github.com/Manish-Dewangan/MeetMovies",
       live: "https://meet-movies.vercel.app/",
     },
     {
@@ -135,7 +136,7 @@ const Projects = () => {
       tech: ["React", "Redux", "LocalStorage"],
       category: "basic",
       image: "/project_img/mediasearch.png",
-      github: "https://github.com/...",
+      github: "https://github.com/Manish-Dewangan/MediaSearch",
       live: "https://media-searchh.vercel.app/",
     },
     {
@@ -146,18 +147,8 @@ const Projects = () => {
       tech: ["HTML5", "CSS", "JavaScript"],
       category: "basic",
       image: "/project_img/countup.png",
-      github: "https://github.com/...",
+      github: "https://github.com/Manish-Dewangan/CountUp_The-Calculator",
       live: "https://count-up-the-calculator.vercel.app/",
-    },
-    {
-      id: 4,
-      title: "Portfolio 3.0",
-      description: "3D interactive portfolio with Three.js",
-      tech: ["Three.js", "React", "GSAP"],
-      category: "creative",
-      image: "/project4.jpg",
-      github: "https://github.com/...",
-      live: "https://project4.com",
     },
   ];
 
@@ -165,6 +156,18 @@ const Projects = () => {
 
   const filteredProjects =
     filter === "all" ? projects : projects.filter((p) => p.category === filter);
+
+  const INITIAL_DISPLAY_COUNT = 3;
+  const hasMoreProjects = filteredProjects.length > INITIAL_DISPLAY_COUNT;
+  const displayedProjects = showAll
+    ? filteredProjects
+    : filteredProjects.slice(0, INITIAL_DISPLAY_COUNT);
+
+  // Reset showAll when filter changes
+  const handleFilterChange = (cat) => {
+    setFilter(cat);
+    setShowAll(false);
+  };
 
   return (
     <section
@@ -199,7 +202,7 @@ const Projects = () => {
           {categories.map((cat) => (
             <motion.button
               key={cat}
-              onClick={() => setFilter(cat)}
+              onClick={() => handleFilterChange(cat)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className={`relative px-6 py-2.5 rounded-full capitalize text-sm font-medium transition-all duration-300 ${
@@ -228,14 +231,14 @@ const Projects = () => {
         {/* Projects Grid */}
         <AnimatePresence mode="wait">
           <motion.div
-            key={filter}
+            key={`${filter}-${showAll}`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
-            {filteredProjects.map((project, index) => (
+            {displayedProjects.map((project, index) => (
               <ProjectCard key={project.id} project={project} index={index} />
             ))}
           </motion.div>
@@ -254,32 +257,35 @@ const Projects = () => {
           </motion.div>
         )}
 
-        {/* View More Button */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: false }}
-          transition={{ duration: 0.5 }}
-          className="text-center mt-16"
-        >
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="group relative px-8 py-3.5 rounded-full text-white font-semibold overflow-hidden"
+        {/* View More / Show Less Button — only shown when more than 3 projects */}
+        {hasMoreProjects && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.5 }}
+            className="text-center mt-16"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 transition-all duration-300" />
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl" />
-            <span className="relative z-10 flex items-center gap-2">
-              View All Projects
-              <motion.span
-                animate={{ x: [0, 5, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-              >
-                →
-              </motion.span>
-            </span>
-          </motion.button>
-        </motion.div>
+            <motion.button
+              onClick={() => setShowAll((prev) => !prev)}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="group relative px-8 py-3.5 rounded-full text-white font-semibold overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 transition-all duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl" />
+              <span className="relative z-10 flex items-center gap-2">
+                {showAll ? "Show Less" : "View All Projects"}
+                <motion.span
+                  animate={{ x: [0, 5, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                >
+                  {showAll ? "←" : "→"}
+                </motion.span>
+              </span>
+            </motion.button>
+          </motion.div>
+        )}
       </div>
     </section>
   );

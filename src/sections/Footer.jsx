@@ -15,7 +15,7 @@ const Footer = () => {
     {
       Icon: FaGithub,
       label: "GitHub",
-      href: "https://github.com/manish130206",
+      href: "https://github.com/Manish-Dewangan",
     },
     {
       Icon: FaLinkedin,
