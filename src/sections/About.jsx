@@ -283,8 +283,9 @@ const About = () => {
                 className="flex flex-col sm:flex-row gap-4"
               >
                 <motion.a
-                  href="/Manish_Dewangan_Resume.pdf"
-                  download
+                  href="https://res.cloudinary.com/dm7lxtbgi/image/upload/v1781988329/Manish_Dewangan_Resume_iel698.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="group relative px-8 py-3 rounded-full text-black font-semibold text-sm overflow-hidden text-center"
